@@ -1,22 +1,17 @@
 // webpack.config.js
 
+const devMode = process.argv.indexOf('--env=dev') !== -1;
+
 const path = require('path');
+
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const Webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin'); // 要使用需要一个个文件引入...
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
-  mode: 'development',
-  
-  devServer: {
-    port: 3000,
-    hot: true,
-    contentBase: '../dist'
-  },
-  
   entry: ['@babel/polyfill', path.resolve(__dirname, '../src/view.js')],    // 入口文件
   
   output: {
@@ -26,11 +21,6 @@ module.exports = {
   
   module: {
     rules: [
-      // Vue 文件
-      {
-        test: /\.vue$/,
-        use: ['vue-loader']
-      },
       // JavaScript 文件 babel 转义高级 ES 语法
       {
         test: /\.js$/,
@@ -42,15 +32,47 @@ module.exports = {
         },
         exclude: /node_modules/
       },
+      // Vue 文件
+      {
+        test: /\.vue$/,
+        use: [
+          {
+            loader: 'vue-loader',
+            options: {
+              compilerOptions: {
+                preserveWhitespace: false
+              }
+            }
+          }
+        ]
+      },
       // Css 文件
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader']
+        use: [
+          {
+            loader: devMode ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '../dist/css/',
+              hmr: devMode
+            }
+          },
+          'css-loader'
+        ]
       },
       // Less 文件
       {
         test: /\.less$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader']
+        use: [
+          {
+            loader: devMode ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '../dist/css/',
+              hmr: devMode
+            }
+          },
+          'css-loader', 'less-loader'
+        ]
       },
       // 图片 文件
       {
@@ -120,7 +142,7 @@ module.exports = {
   
   plugins: [
     new CleanWebpackPlugin(),
-  
+    
     new Webpack.HotModuleReplacementPlugin(),
     
     new VueLoaderPlugin(),
@@ -130,8 +152,8 @@ module.exports = {
     }),
     
     new MiniCssExtractPlugin({
-      filename: '[name].[hash].css',
-      chunkFilename: '[id].css',
+      filename: devMode ? '[name].css' : '[name].[hash].css',
+      chunkFilename: devMode ? '[id].css' : '[id].[hash].css'
     })
   ]
 };
