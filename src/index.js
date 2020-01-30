@@ -1,4 +1,6 @@
 
+const devMode = process.argv.indexOf('--env=dev') !== -1;
+
 const { app, BrowserWindow } = require('electron');
 
 // 保持对 window 对象的全局引用，如果不这么做的话，当 JavaScript 对象被垃圾回收的时候，window 对象将会自动的关闭
@@ -15,11 +17,15 @@ function createWindow() {
     webPreferences: {webSecurity: false}
   });
   
-  // 加载index.html文件
-  win.loadFile('dist/index.html');
+  // 加载页面
+  if (devMode) {
+    win.loadURL('http://localhost:5354/');
+  } else {
+    win.loadFile('dist/index.html');
+  }
   
   // 打开开发者工具
-  // win.webContents.openDevTools();
+  win.webContents.openDevTools();
   
   // 当 window 被关闭，这个事件会被触发。
   win.on('closed', () => {
