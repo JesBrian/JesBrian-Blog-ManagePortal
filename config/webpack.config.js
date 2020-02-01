@@ -12,7 +12,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
-  entry: ['@babel/polyfill', path.resolve(__dirname, '../src/view.js')],    // 入口文件
+  entry: ['@babel/polyfill', path.resolve(__dirname, '../index.view.js')],    // 入口文件
   
   output: {
     filename: '[name].[hash:8].js',

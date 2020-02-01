@@ -2,14 +2,14 @@
   "name": "test",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "index.electron.js",
   "scripts": {
+	  "portal:dev": "npm-run-all --parallel view:dev electron:dev",
+	  "portal:bulid": "npm run view:build && npm run electron:build",
     "view:dev": "webpack-dev-server --config config/webpack.dev.js --env=dev",
     "view:build": "webpack --config config/webpack.prod.js --env=prod",
     "electron:dev": "electron . --env=dev",
-    "electron:build": "electron . --env=prod",
-    "portal:dev": "npm-run-all --parallel view:dev electron:dev",
-    "portal:bulid": "npm run view:build && npm run electron:build"
+    "electron:build": "electron . --env=prod"
   },
   "author": "",
   "license": "ISC",
