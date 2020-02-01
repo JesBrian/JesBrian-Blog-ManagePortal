@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.electron.js",
   "scripts": {
-	  "portal:dev": "npm-run-all --parallel view:dev electron:dev",
-	  "portal:bulid": "npm run view:build && npm run electron:build",
+    "portal:dev": "npm-run-all --parallel view:dev electron:dev",
+    "portal:bulid": "npm run view:build && npm run electron:build",
     "view:dev": "webpack-dev-server --config config/webpack.dev.js --env=dev",
     "view:build": "webpack --config config/webpack.prod.js --env=prod",
     "electron:dev": "electron . --env=dev",
@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.8.3",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vuex": "^3.1.2"
   }
 }
