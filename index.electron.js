@@ -19,9 +19,9 @@ function createWindow() {
   
   // 加载页面
   if (devMode) {
-    win.loadURL('http://localhost:5354/');
+    win.loadURL('http://localhost:5354/#/');
   } else {
-    win.loadFile('dist/index.html');
+    win.loadFile('index.html');
   }
   
   // 打开开发者工具

@@ -5,5 +5,10 @@ Vue.use(VueRouter);
 
 export default new VueRouter({
   routes: [
+    {
+      path: '',
+      name: 'index',
+      component: () => import('../views/IndexPage/IndexPage.vue')
+    }
   ]
 })
