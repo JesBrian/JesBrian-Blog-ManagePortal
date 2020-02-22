@@ -4,11 +4,28 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 export default new VueRouter({
-  routes: [
-    {
-      path: '',
-      name: 'index',
-      component: () => import('../views/IndexPage/IndexPage.vue')
-    }
-  ]
+    routes: [
+        {
+            path: '',
+            component: () => import('../views/WindowFrame.vue'),
+            redirect: '/',
+            children: [
+                {
+                    path: '/',
+                    component: () => import('../views/Pages/IndexPage/IndexPage.vue')
+                },
+                {
+                    path: '/edit/:id',
+                    component: () => import('../views/Pages/EditPage/EditPage.vue')
+                },
+
+
+
+                {
+                    path: '*',
+                    component: () => import('../views/Pages/ErrorPage/ErrorPage.vue')
+                }
+            ]
+        }
+    ]
 })
