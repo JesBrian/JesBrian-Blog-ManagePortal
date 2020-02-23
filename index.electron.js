@@ -1,4 +1,3 @@
-
 const devMode = process.argv.indexOf('--env=dev') !== -1;
 
 const { app, BrowserWindow } = require('electron');
@@ -16,17 +15,17 @@ function createWindow() {
     transparent: true,
     webPreferences: {webSecurity: false}
   });
-  
+
   // 加载页面
   if (devMode) {
     win.loadURL('http://localhost:5354/#/');
   } else {
     win.loadFile('index.html');
   }
-  
+
   // 打开开发者工具
   win.webContents.openDevTools();
-  
+
   // 当 window 被关闭，这个事件会被触发。
   win.on('closed', () => {
     // 取消引用 window 对象，如果你的应用支持多窗口的话，

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.electron.js",
   "scripts": {
-    "portal:dev": "npm-run-all --parallel view:dev electron:dev",
+    "portal:dev": "npm-run-all -p view:dev electron:dev",
     "portal:build": "npm run view:build && npm run electron:build",
     "view:dev": "webpack-dev-server --config config/webpack.dev.js --env=dev",
     "view:build": "webpack --config config/webpack.prod.js --env=prod",

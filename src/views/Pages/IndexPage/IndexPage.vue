@@ -1,16 +1,19 @@
 <template>
-  <div class="IndexPage">
+  <div class='IndexPage'>
     Index Page <br/>
-    <router-link to="/edit/1322"> 跳转 EditPage </router-link>
+    <router-link to='/edit/1322'> 跳转 EditPage </router-link>
   </div>
 </template>
 
-<script>
-  export default {
-    name: 'IndexPage'
-  }
+<script lang='ts'>
+  import {Vue, Component} from 'vue-property-decorator'
+
+  @Component
+
+  export default class IndexPage extends Vue {
+  };
 </script>
 
-<style lang="less" scoped>
+<style lang='less' scoped>
   @import './IndexPage.less';
 </style>

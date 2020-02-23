@@ -1,15 +1,18 @@
 <template>
-  <div class="ViewContent">
+  <div class='ViewContent'>
     <router-view/>
   </div>
 </template>
 
-<script>
-  export default {
-    props: {},
+<script lang='ts' >
+  import { Vue, Component } from 'vue-property-decorator'
+
+  @Component
+
+  export default class ViewContent extends Vue {
   };
 </script>
 
-<style lang="less" scoped>
+<style lang='less' scoped>
   @import 'ViewContent.less';
 </style>

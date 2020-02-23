@@ -9,7 +9,7 @@ import router from './src/router';
 import store from './src/store';
 
 // 引入 App 根组件
-import App from './App.vue';
+import App from './src/App.vue';
 
 new Vue({
   router,
