@@ -1,23 +1,47 @@
 <template>
-    <div class="WindowFrame">
-        <top-bar/>
+  <div class="WindowFrame">
+    {{computedMsg}}
 
-        <left-bar/>
+    <top-bar/>
 
-        <view-content />
-    </div>
+    <left-bar/>
+
+    <view-content/>
+  </div>
 </template>
 
-<script>
-    import LeftBar from './Layout/LeftBar/LeftBar';
-    import TopBar from './Layout/TopBar/TopBar';
-    import ViewContent from "./Layout/ViewContent/ViewContent";
+<script lang="ts">
+  import { Vue, Component } from 'vue-property-decorator'
 
-    export default {
-        components: {ViewContent, TopBar, LeftBar},
+  import TopBar from './Layout/TopBar/TopBar.vue';
+  import LeftBar from './Layout/LeftBar/LeftBar.vue';
+  import ViewContent from './Layout/ViewContent/ViewContent.vue';
 
-        props: {},
-    };
+  @Component({
+    components: {
+      TopBar, LeftBar, ViewContent
+    }
+  })
+
+  export default class WindowFrame extends Vue {
+    // 初始化数据
+    msg = 123;
+
+    // 声明周期钩子
+    mounted() {
+      this.greet()
+    }
+
+    // 计算属性
+    get computedMsg() {
+      return 'computed ' + this.msg
+    }
+
+    // 方法
+    greet() {
+      alert('greeting: ' + this.msg)
+    }
+  }
 </script>
 
 <style lang="less" scoped>

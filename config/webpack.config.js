@@ -4,7 +4,7 @@ const devMode = process.argv.indexOf('--env=dev') !== -1;
 
 const path = require('path');
 
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const Webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -13,25 +13,14 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
   entry: ['@babel/polyfill', path.resolve(__dirname, '../index.view.js')],    // 入口文件
-  
+
   output: {
     filename: '[name].[hash:8].js',
     path: path.resolve(__dirname, '../dist') // 输出文件夹
   },
-  
+
   module: {
     rules: [
-      // JavaScript 文件 babel 转义高级 ES 语法
-      {
-        test: /\.js$/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env']
-          }
-        },
-        exclude: /node_modules/
-      },
       // Vue 文件
       {
         test: /\.vue$/,
@@ -45,6 +34,32 @@ module.exports = {
             }
           }
         ]
+      },
+      // TypeScript 文件
+      {
+        test: /\.ts$/,
+        exclude: /node_modules/,
+        enforce: 'pre',
+        loader: 'tslint-loader'
+      },
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
+        exclude: /node_modules/,
+        options: {
+          appendTsSuffixTo: [/\.vue$/],
+        }
+      },
+      // JavaScript 文件 babel 转义高级 ES 语法
+      {
+        test: /\.js$/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        },
+        exclude: /node_modules/
       },
       // Css 文件
       {
@@ -130,27 +145,30 @@ module.exports = {
       },
     ]
   },
-  
+
   resolve: {
+    // 文件后缀名
+    extensions: ['*', '.js', '.json', '.vue', '.ts'],
+
+    // 路径别名
     alias: {
       'vue$': 'vue/dist/vue.runtime.esm.js',
       '@src': path.resolve(__dirname, '../src'),
       '@assets': path.resolve(__dirname, '../assets'),
-    },
-    extensions: ['*', '.js', '.json', '.vue']
+    }
   },
-  
+
   plugins: [
     new CleanWebpackPlugin(),
-    
+
     new Webpack.HotModuleReplacementPlugin(),
-    
+
     new VueLoaderPlugin(),
-    
+
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../public/index.html'),
     }),
-    
+
     new MiniCssExtractPlugin({
       filename: devMode ? '[name].css' : '[name].[hash].css',
       chunkFilename: devMode ? '[id].css' : '[id].[hash].css'
