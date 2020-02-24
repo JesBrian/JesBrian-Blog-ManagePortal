@@ -3,7 +3,7 @@
         <!-- LOGO -->
         <div style="width:auto; height:100%; float:left;">
             <page-link url="/" style="-webkit-app-region:no-drag; float:left; cursor:pointer;">
-                <!--<img src="../../../../assets/image/Logo.png" style="width:30px; height:30px; margin:10px 6px 0 13px; float:left;"/>-->
+                <img :src="logoImg" style="width:30px; height:30px; margin:10px 6px 0 13px; float:left;" />
                 <span style="font-size:22px; font-weight:700; color:#22e8ff; text-shadow:1.5px 1.5px 6px #30cdff; line-height:52px;">Blog Manage Portal</span>
             </page-link>
         </div>
@@ -42,9 +42,12 @@
 <script lang='ts' >
   import { Vue, Component } from 'vue-property-decorator'
 
+  import LogoImg from '@assets/image/Logo.png';
+
   @Component
 
   export default class TopBar extends Vue {
+      logoImg = LogoImg;
   };
 </script>
 

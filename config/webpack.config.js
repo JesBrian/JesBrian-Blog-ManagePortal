@@ -91,7 +91,7 @@ module.exports = {
       },
       // 图片 文件
       {
-        test: /\.(jpe?g|png|gif)$/i,
+        test: /\.(jpe?g|png|gif|svg)$/i,
         use: [
           {
             loader: 'url-loader',
@@ -100,7 +100,7 @@ module.exports = {
               fallback: {
                 loader: 'file-loader',
                 options: {
-                  name: 'img/[name].[hash:8].[ext]'
+                  name: 'image/[name].[hash:8].[ext]'
                 }
               }
             }

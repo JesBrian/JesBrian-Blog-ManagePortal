@@ -11,6 +11,12 @@ import store from './src/store';
 // 引入 App 根组件
 import App from './src/App.vue';
 
+import VueLazyload from 'vue-lazyload';
+Vue.use(VueLazyload, {
+  error: import('@assets/image/loading.svg'),
+  loading: import('@assets/image/loading.svg')
+});
+
 import PageLink from './src/components/PageLink/PageLink.vue';
 Vue.use(PageLink);
 Vue.component('page-link', PageLink);
