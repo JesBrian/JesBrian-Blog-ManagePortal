@@ -7,6 +7,10 @@ export default new VueRouter({
   routes: [
     {
       path: '/',
+      redirect: '/home'
+    },
+    {
+      path: '/home',
       component: () => import('../views/Pages/IndexPage/IndexPage.vue')
     },
     {
