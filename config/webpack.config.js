@@ -153,8 +153,7 @@ module.exports = {
     // 路径别名
     alias: {
       'vue$': 'vue/dist/vue.runtime.esm.js',
-      '@src': path.resolve(__dirname, '../src'),
-      '@assets': path.resolve(__dirname, '../assets'),
+      '@': path.resolve(__dirname, '../src')
     }
   },
 

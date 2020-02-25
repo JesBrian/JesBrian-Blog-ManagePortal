@@ -42,7 +42,7 @@
 <script lang='ts' >
   import { Vue, Component } from 'vue-property-decorator'
 
-  import LogoImg from '@assets/image/Logo.png';
+  import LogoImg from '@/assets/image/Logo.png';
 
   @Component
 

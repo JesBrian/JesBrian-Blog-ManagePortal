@@ -13,8 +13,8 @@ import App from './src/App.vue';
 
 import VueLazyload from 'vue-lazyload';
 Vue.use(VueLazyload, {
-  error: import('@assets/image/loading.svg'),
-  loading: import('@assets/image/loading.svg')
+  error: import('@/assets/image/loading.svg'),
+  loading: import('@/assets/image/loading.svg')
 });
 
 import PageLink from './src/components/PageLink/PageLink.vue';
