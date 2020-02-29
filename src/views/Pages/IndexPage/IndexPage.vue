@@ -2,6 +2,10 @@
   <div class='IndexPage'>
     Index Page <br/>
     <router-link to='/edit/1322'> 跳转 EditPage </router-link>
+
+    <jes-button @onClick="testClick('gg')" >
+      1234
+    </jes-button>
   </div>
 </template>
 
@@ -11,6 +15,10 @@
   @Component
 
   export default class IndexPage extends Vue {
+
+    testClick (val: string = '') {
+      console.log(val);
+    }
   };
 </script>
 

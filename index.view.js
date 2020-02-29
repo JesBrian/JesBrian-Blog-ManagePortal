@@ -18,8 +18,10 @@ Vue.use(VueLazyload, {
 });
 
 import PageLink from './src/components/PageLink/PageLink.vue';
-Vue.use(PageLink);
 Vue.component('page-link', PageLink);
+
+import JesButton from './src/components/JesButton/JesButton.vue';
+Vue.component('jes-button', JesButton);
 
 new Vue({
   router,
