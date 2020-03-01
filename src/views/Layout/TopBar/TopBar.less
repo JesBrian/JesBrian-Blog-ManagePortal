@@ -1,4 +1,80 @@
 .TopBar {
-    & {
-    }
+	-webkit-app-region: drag;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 32px;
+	display: block;
+	position: fixed;
+	z-index: 999;
+	border-radius: 6px 6px 0 0;
+	color: #999;
+	background: #2e3537;
+
+	.logo {
+		width: 18px;
+		height: 18px;
+		margin: 6px 8px;
+		float: left;
+	}
+
+	.label {
+		color: #22e8ff;
+		font-size: 14px;
+		font-weight: 700;
+		line-height: 31px;
+		text-shadow: 1px 1px 4px #30CDFF;
+	}
+
+	.operationBar {
+		-webkit-app-region: no-drag;
+		width: auto;
+		height: 100%;
+		padding: 0 8px;
+		float: right;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		background: transparent;
+
+		.dotBtn {
+			width: 16px;
+			height: 16px;
+			margin: 0 6px;
+			padding-bottom: 1.6px;
+			box-sizing: border-box;
+			border-radius: 50%;
+			background: #40B1EC;
+			color: #FFF;
+			font-size: 14px;
+			line-height: 14px;
+			font-weight: 700;
+			text-align: center;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+
+			&:active {
+				background: multiply(#40B1EC, #CCC);
+			}
+
+			&.max {
+				background: #22E8FF;
+
+				&:active {
+					background: multiply(#22E8FF, #CCC);
+				}
+			}
+
+			&.close {
+				background: #FF77BB;
+
+				&:active {
+					background: multiply(#FF77BB, #CCC);
+				}
+			}
+		}
+	}
 }

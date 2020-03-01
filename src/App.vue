@@ -24,4 +24,16 @@
 </script>
 
 <style lang='less' scoped>
+
+  html, body, #App {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    border-radius: 8px 8px 6px 6px;
+    background: #FFF;
+  }
+
 </style>

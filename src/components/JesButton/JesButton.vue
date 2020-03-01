@@ -7,17 +7,17 @@
 </template>
 
 <script lang='ts' >
-  import { Vue, Component } from 'vue-property-decorator'
+  import { Vue, Component, Emit } from 'vue-property-decorator'
 
   @Component
   export default class JesButton extends Vue {
 
-    onClick () {
-      this.$emit('onClick');
+    @Emit('onClick') onClick (event) {
+      // console.log(event)
     }
   }
 </script>
 
-<style lang='less' scoped>
+<style lang='less' scoped >
   @import './JesButton.less';
 </style>

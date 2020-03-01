@@ -6,6 +6,10 @@
     <jes-button @onClick="testClick('gg')" >
       1234
     </jes-button>
+
+    <jes-notification>
+      ttt
+    </jes-notification>
   </div>
 </template>
 

@@ -20,6 +20,9 @@ Vue.use(VueLazyload, {
 import PageLink from './src/components/PageLink/PageLink.vue';
 Vue.component('page-link', PageLink);
 
+import JesNotification from './src/components/JesNotification/JesNotification.vue';
+Vue.component('jes-notification', JesNotification);
+
 import JesButton from './src/components/JesButton/JesButton.vue';
 Vue.component('jes-button', JesButton);
 
