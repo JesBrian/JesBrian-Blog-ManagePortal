@@ -38,9 +38,6 @@
 		"baseUrl": "./",
 		// 指定特殊模块的路径
 		"paths": {
-			"jquery": [
-				"node_modules/jquery/dist/jquery"
-			]
 		},
 		// 编译过程中需要引入的库文件的列表
 		"lib": [
