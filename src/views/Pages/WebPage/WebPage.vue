@@ -1,12 +1,14 @@
 <template>
   <div class="WebPage">
-    <pre v-text="$attrs"/>
+    <iframe :src="this.url" />
   </div>
 </template>
 
 <script>
   export default {
-    props: {},
+    props: {
+      url: ''
+    },
   };
 </script>
 

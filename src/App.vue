@@ -32,7 +32,7 @@
     height: 100%;
     position: absolute;
     overflow: hidden;
-    border-radius: 8px 8px 6px 6px;
+    border-radius: 8px;
     background: #FFF;
   }
 

@@ -1,6 +1,6 @@
 <template>
   <div class='ViewContent'>
-    <router-view/>
+    <router-view class="viewPage" />
   </div>
 </template>
 
@@ -8,7 +8,6 @@
   import { Vue, Component } from 'vue-property-decorator'
 
   @Component
-
   export default class ViewContent extends Vue {
   };
 </script>
