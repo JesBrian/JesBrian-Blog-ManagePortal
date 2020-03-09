@@ -2,7 +2,6 @@
   <div class='JesNotification' @click="onClick" >
     <div v-if="title" >{{title}}</div>
     <slot />
-
     <div v-if="closable" class="closeBtn" >×</div>
   </div>
 </template>
@@ -29,6 +28,8 @@
     @Prop({default: true})
     closable?: boolean;
 
+    created (): void {
+    }
 
     /**
      * 点击 Notification 时的回调函数

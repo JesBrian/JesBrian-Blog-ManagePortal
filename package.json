@@ -68,10 +68,10 @@
       "output": "build"
     },
     "win": {
-      "icon": "build/icons/64*64.ico"
+      "icon": "icons/512x512.ico"
     },
     "mac": {
-      "icon": "build/icons/512*512.ico"
+      "icon": "icons/512x512.ico"
     }
   }
 }
