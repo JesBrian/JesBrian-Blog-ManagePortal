@@ -4,7 +4,7 @@ const devMode = process.argv.indexOf('--env=dev') !== -1;
 
 const path = require('path');
 
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const Webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -158,7 +158,9 @@ module.exports = {
   },
 
   plugins: [
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: ['**/*', '!.gitkeep'],
+    }),
 
     new Webpack.HotModuleReplacementPlugin(),
 
