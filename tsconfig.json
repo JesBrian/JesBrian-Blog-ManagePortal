@@ -6,7 +6,7 @@
 		// 是否包含可以用于 debug 的 sourceMap
 		"sourceMap": true,
 		// 以严格模式解析
-		"strict": true,
+		"strict": false,
 		// 采用的模块系统
 		"module": "esnext",
 		// 如何处理模块

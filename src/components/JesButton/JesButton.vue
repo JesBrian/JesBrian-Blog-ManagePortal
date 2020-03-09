@@ -13,7 +13,6 @@
   export default class JesButton extends Vue {
 
     @Emit('onClick') onClick (event) {
-      // console.log(event)
     }
   }
 </script>
