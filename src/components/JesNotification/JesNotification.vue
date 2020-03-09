@@ -1,8 +1,9 @@
 <template>
-  <div class='JesNotification' @click="onClick" >
+  <div v-if="!hide" class='JesNotification' @click="onClick" >
     <div v-if="title" >{{title}}</div>
+    <div v-if="message" >{{message}}</div>
     <slot />
-    <div v-if="closable" class="closeBtn" >×</div>
+    <div v-if="closable" class="closeBtn" @click="close" >×</div>
   </div>
 </template>
 
@@ -21,14 +22,31 @@
     message?: string;
 
     // 显示时间
-    @Prop({default: 50000})
+    @Prop({default: 10000})
     duration?: number;
 
     // 关闭按钮
     @Prop({default: true})
     closable?: boolean;
 
+    // 是否展示
+    hide: boolean = false;
+
+    // 倒计时
+    times: number = this.duration;
+
     created (): void {
+      if (this.times > 0) {
+        let timer = setInterval(() => {
+          if (this.hide) return clearInterval(timer);
+          this.times -= 300;
+          if (this.times <= 0) {
+            this.hide = true;
+            this.onClose();
+            clearInterval(timer);
+          }
+        }, 300);
+      }
     }
 
     /**
@@ -41,6 +59,14 @@
      * 关闭时的回调函数
      */
     @Emit('onClose') onClose() {
+    }
+
+    /**
+     * 主动关闭提示
+     */
+    close (): void {
+      this.hide = true;
+      this.onClose();
     }
   }
 </script>

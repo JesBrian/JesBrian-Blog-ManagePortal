@@ -7,21 +7,22 @@
       1234
     </jes-button>
 
-    <jes-notification>
-      ttt
-    </jes-notification>
+    <jes-notification @onClick="testClick" @onClose="testClose" title="title" message="message" />
   </div>
 </template>
 
 <script lang='ts'>
-  import {Vue, Component} from 'vue-property-decorator'
+  import { Vue, Component } from 'vue-property-decorator'
 
   @Component
-
   export default class IndexPage extends Vue {
 
     testClick (val: string = '') {
       console.log(val);
+    }
+
+    testClose () {
+      console.log('testClose');
     }
   };
 </script>
