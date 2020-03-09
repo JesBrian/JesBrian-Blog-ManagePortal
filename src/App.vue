@@ -3,6 +3,12 @@
     <top-bar />
     <left-bar />
     <view-content />
+    <div class="BottomBar">
+      <div></div>
+      <div>
+        <router-link to="/funny" >娱乐</router-link>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -32,8 +38,24 @@
     height: 100%;
     position: absolute;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 10px;
     background: #FFF;
+  }
+
+
+  .BottomBar {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 20px;
+    padding: 0 20px;
+    position: fixed;
+    box-sizing: border-box;
+    /*background: #2af1fc;*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 
 </style>

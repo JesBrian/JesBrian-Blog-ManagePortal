@@ -14,6 +14,10 @@ export default new VueRouter({
       component: () => import('../views/Pages/IndexPage/IndexPage.vue')
     },
     {
+      path: '/funny',
+      component: () => import('../views/Pages/FunnyPage/FunnyPage.vue')
+    },
+    {
       path: '/edit/:id',
       component: () => import('../views/Pages/EditPage/EditPage.vue')
     },

@@ -1,6 +1,6 @@
 <template>
   <div class='super-btn-out' @click="onClick" >
-    <div class='super-btn-in'>
+    <div class='super-btn-in' >
       <slot />
     </div>
   </div>

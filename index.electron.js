@@ -13,7 +13,9 @@ function createWindow() {
     minHeight: 638,
     frame: false,
     transparent: true,
-    webPreferences: {webSecurity: false}
+    webPreferences: {
+      webSecurity: false // 跨域
+    }
   });
 
   // 加载页面

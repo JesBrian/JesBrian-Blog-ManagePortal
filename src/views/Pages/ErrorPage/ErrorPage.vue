@@ -1,6 +1,6 @@
 <template>
     <div class='ErrorPage'>
-        this application has encountered a critical error: FATAL ERROR<hr/>
+        This application has encountered a critical error: FATAL ERROR<hr />
         <router-link to='/' >Restart !</router-link>
     </div>
 </template>
@@ -9,7 +9,6 @@
   import { Vue, Component } from 'vue-property-decorator'
 
   @Component
-
   export default class ErrorPage extends Vue {
   };
 </script>

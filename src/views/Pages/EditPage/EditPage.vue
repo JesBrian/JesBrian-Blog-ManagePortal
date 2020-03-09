@@ -1,17 +1,21 @@
 <template>
-    <div class='EditPage'>
-        Edit Page <br/>
-        <router-link to='/' >跳转 IndexPage</router-link>
-    </div>
+  <div class='EditPage'>
+    Edit Page <br/>
+    <router-link to='/'>跳转 IndexPage</router-link>
+  </div>
 </template>
 
 <script lang='ts'>
-  import { Vue } from 'vue-property-decorator'
+  import { Vue, Component } from 'vue-property-decorator'
 
+  @Component
   export default class EditPage extends Vue {
+    created () {
+      console.log('EditPage - created')
+    }
   };
 </script>
 
 <style lang='less' scoped>
-    @import './EditPage.less';
+  @import './EditPage.less';
 </style>

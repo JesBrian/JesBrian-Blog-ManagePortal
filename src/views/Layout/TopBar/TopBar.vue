@@ -19,7 +19,6 @@
   import LogoImg from '@/assets/image/Logo.png';
 
   @Component
-
   export default class TopBar extends Vue {
     logoImg = LogoImg;
 

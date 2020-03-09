@@ -26,6 +26,10 @@ Vue.component('jes-notification', JesNotification);
 import JesButton from './src/components/JesButton/JesButton.vue';
 Vue.component('jes-button', JesButton);
 
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+Vue.use(VueAxios, axios);
+
 new Vue({
   router,
   store,
