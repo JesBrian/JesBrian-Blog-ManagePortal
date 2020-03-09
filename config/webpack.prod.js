@@ -10,16 +10,16 @@ const webpackConfig = require('./webpack.config.js');
 
 module.exports = WebpackMerge(webpackConfig, {
   mode: 'production',
-  
+
   devtool: 'cheap-module-source-map',
-  
+
   plugins: [
     new CopyWebpackPlugin([{
       from: path.resolve(__dirname, '../public'),
       to: path.resolve(__dirname, '../dist')
-    }]),
+    }])
   ],
-  
+
   optimization: {
     minimizer: [
       new UglifyJsPlugin({ // 压缩js
@@ -27,10 +27,10 @@ module.exports = WebpackMerge(webpackConfig, {
         parallel: true,
         sourceMap: true
       }),
-      
+
       new OptimizeCssAssetsPlugin({})
     ],
-    
+
     splitChunks: {
       chunks: 'all',
       cacheGroups: {
