@@ -1,6 +1,5 @@
 .DS_Store
 node_modules
-/dist
 .svn
 
 # lock files
@@ -26,5 +25,4 @@ yarn-error.log*
 *.sw?
 
 
-!/build/win-unpacked/
-!/build/builder-effective-config.yaml
+/build/
