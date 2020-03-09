@@ -25,4 +25,6 @@ yarn-error.log*
 *.sln
 *.sw?
 
-./build/*
+
+!/build/win-unpacked/
+!/build/builder-effective-config.yaml
