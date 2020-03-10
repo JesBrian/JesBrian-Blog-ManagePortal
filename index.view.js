@@ -8,6 +8,11 @@ import router from './src/router';
 // 引入 Vuex
 import store from './src/store';
 
+// 引入 axios
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+Vue.use(VueAxios, axios);
+
 // 引入 App 根组件
 import App from './src/App.vue';
 
@@ -25,10 +30,6 @@ Vue.component('jes-notification', JesNotification);
 
 import JesButton from './src/components/JesButton/JesButton.vue';
 Vue.component('jes-button', JesButton);
-
-import axios from 'axios'
-import VueAxios from 'vue-axios'
-Vue.use(VueAxios, axios);
 
 new Vue({
   router,
