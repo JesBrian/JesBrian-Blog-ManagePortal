@@ -13,9 +13,11 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 Vue.use(VueAxios, axios);
 
-// 引入 App 根组件
-import App from './src/App.vue';
+// 引入 localForage
+import localForage from 'localforage';
+Vue.prototype.$localForage = localForage;
 
+// 引入 VueLazyload
 import VueLazyload from 'vue-lazyload';
 Vue.use(VueLazyload, {
   error: import('@/assets/image/loading.svg'),
@@ -30,6 +32,10 @@ Vue.component('jes-notification', JesNotification);
 
 import JesButton from './src/components/JesButton/JesButton.vue';
 Vue.component('jes-button', JesButton);
+
+
+// 引入 App 根组件
+import App from './src/App.vue';
 
 new Vue({
   router,

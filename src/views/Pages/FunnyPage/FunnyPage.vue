@@ -11,6 +11,9 @@
 
   @Component
   export default class FunnyPage extends Vue {
+    created(): void {
+      console.log(this.$localForage)
+    }
   };
 </script>
 
