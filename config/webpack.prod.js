@@ -11,8 +11,6 @@ const webpackConfig = require('./webpack.config.js');
 module.exports = WebpackMerge(webpackConfig, {
   mode: 'production',
 
-  devtool: 'cheap-module-source-map',
-
   plugins: [
     new CopyWebpackPlugin([{
       from: path.resolve(__dirname, '../public'),
