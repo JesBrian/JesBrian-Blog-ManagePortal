@@ -1,4 +1,4 @@
-const devMode = process.argv.indexOf('--env=dev') !== -1;
+const devMode = process.env.NODE_ENV === 'development';
 
 const { app, BrowserWindow } = require('electron');
 
